@@ -25,7 +25,7 @@ try:
 except:
 	pass
 
-ENV = bool(os.environ.get('ENV', False))
+ENV = bool(os.environ.get('ENV', True))
 
 if ENV:
 	TOKEN = os.environ.get('TOKEN', None)
