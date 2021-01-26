@@ -28,11 +28,18 @@ from emilia.modules.sql import languages_sql as langsql
 from emilia.modules.connection import connect_button
 from emilia.modules.languages import set_language
 
-PM_START_TEXT = "start_text"
+PM_START_TEXT = """
+Hi {}, my name is [Julia](https://telegra.ph/file/0b3ee757ff87f503b74fd.jpg)! 
+ 🤖I'm a powerful group management bot 🤖
+👉Add me to your groups as admin to manage your groups with my commands🤩
+You can find my list of available commands with /help
+"""
 
 HELP_STRINGS = "help_text"#.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-DONATE_STRING = "donate_text"
+DONATE_STRING = """Hello, glad to hear you want to donate!
+Need a lot of work for my creator to take me to my place now, and every donation helps and motivates him to make me better. Donated money will be given to a better VPS to host me, and or some food. He is just an ordinary person, so it will really help him!
+You can Donate via [Paypal](paypal.me/sixteenbit) """
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -147,8 +154,8 @@ def start(update, context):
             buttons = InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="🎉 Add me to your group", url="https://t.me/{}?startgroup=new".format(context.bot.username))],
                 [InlineKeyboardButton(text="💭 Language", callback_data="main_setlang"), InlineKeyboardButton(text="⚙️ Connect Group", callback_data="main_connect")],
-                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/EmiliaOfficial"), InlineKeyboardButton(text="🔔 Update Channel", url="https://t.me/AyraBotNews")],
-                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="💖 Donate", url="http://ayrahikari.github.io/donations.html")]])
+                [InlineKeyboardButton(text="👥 Support Group", url="https://t.me/JuliaUpdates")],
+                [InlineKeyboardButton(text="❓ Help", url="https://t.me/{}?start=help".format(context.bot.username))]])
             update.effective_message.reply_text(
                 tl(update.effective_message, PM_START_TEXT).format(escape_markdown(first_name), escape_markdown(context.bot.first_name), OWNER_ID),
                 disable_web_page_preview=True,
